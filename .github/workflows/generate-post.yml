@@ -31,7 +31,14 @@ jobs:
           NUXT_PUBLIC_SITE_URL: 'https://blog.orceifacil.com.br'
           MODEL: 'gemini-2.5-flash'
           TIMEZONE: 'America/Sao_Paulo'
-          POSTS_PER_DAY: '3'
+          POSTS_PER_DAY: '5'
+          NUXT_CLOUDINARY_CLOUD_NAME: ${{ secrets.NUXT_CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_NAME: ${{ secrets.CLOUDINARY_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
+          CLOUDFLARE_AI_MODEL: ${{ secrets.CLOUDFLARE_AI_MODEL }}
 
       - name: Commit and Push (Bot)
         run: |
