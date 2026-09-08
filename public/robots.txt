@@ -1,0 +1,5 @@
+# robots.txt — Blog Orcei Fácil
+User-agent: *
+Allow: /
+
+Sitemap: https://blog.orceifacil.com.br/sitemap.xml
