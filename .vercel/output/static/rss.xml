@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog Orcei Fácil — Dicas de Orçamentos e Vendas</title>
+    <link>https://blog.orceifacil.com.br</link>
+    <description>Dicas de orçamento, precificação e vendas para prestadores de serviço autônomos e freelancers no Brasil.</description>
+    <language>pt-BR</language>
+    <atom:link href="https://blog.orceifacil.com.br/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title><![CDATA[Como Precificar Higienização de Ar-Condicionado e Vender Pacotes Recorrentes]]></title>
+      <link>https://blog.orceifacil.com.br/blog/como-precificar-higienizacao-de-ar-condicionado-e-vender-pac</link>
+      <guid>https://blog.orceifacil.com.br/blog/como-precificar-higienizacao-de-ar-condicionado-e-vender-pac</guid>
+      <description><![CDATA[A higienização de ar-condicionado é um serviço essencial para manter o sistema de refrigeração em perfeitas condições de funcionamento. Além de garantir a quali]]></description>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Ar-Condicionado e Refrigeração</category>
+    </item>
+    <item>
+      <title><![CDATA[Modelo de Proposta para Diaristas e Empresas de Limpeza em Contratos Mensais]]></title>
+      <link>https://blog.orceifacil.com.br/blog/modelo-de-proposta-para-diaristas-e-empresas-de-limpeza-em-c</link>
+      <guid>https://blog.orceifacil.com.br/blog/modelo-de-proposta-para-diaristas-e-empresas-de-limpeza-em-c</guid>
+      <description><![CDATA[Resumo introdutório completo de 2 parágrafos]]></description>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Limpeza Pós-Obra e Conservação</category>
+    </item>
+  </channel>
+</rss>

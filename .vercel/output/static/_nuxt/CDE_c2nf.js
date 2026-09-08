@@ -1,0 +1,1 @@
+import{a0 as n,o as a,c,g as e,e as _,B as r,a5 as l,a6 as d}from"./BEZjzXjM.js";const f={},i={class:"min-h-screen flex flex-col bg-white text-ink font-sans selection:bg-brand-soft selection:text-brand"},p={class:"flex-grow"};function m(t,x){const o=l,s=d;return a(),c("div",i,[e(o),_("main",p,[r(t.$slots,"default")]),e(s)])}const h=n(f,[["render",m]]);export{h as default};

@@ -1,0 +1,123 @@
+[
+  {
+    "category": "Serviços Elétricos",
+    "categorySlug": "eletrica",
+    "topics": [
+      "Como fazer orçamento de instalação elétrica residencial em 2026",
+      "Quanto cobrar por ponto de tomada e iluminação: Tabela prática de preços",
+      "Como apresentar proposta comercial para troca de padrão bifásico e trifásico",
+      "Checklist de materiais e mão de obra para reforma elétrica de apartamento"
+    ]
+  },
+  {
+    "category": "Serviços Hidráulicos",
+    "categorySlug": "hidraulica",
+    "topics": [
+      "Modelo de orçamento para caça vazamentos e reparo de tubulação",
+      "Como precificar instalação de louças e metais sanitários",
+      "Guia completo de orçamento para troca de prumada de condomínio"
+    ]
+  },
+  {
+    "category": "Pintura e Acabamento",
+    "categorySlug": "pintura",
+    "topics": [
+      "Quanto cobrar por metro quadrado de pintura residencial interna e externa",
+      "Como fazer orçamento de pintura com preparação de parede e massa corrida",
+      "Como evitar prejuízo ao calcular quantidade de tinta e tempo de aplicação"
+    ]
+  },
+  {
+    "category": "Reformas e Obras",
+    "categorySlug": "reformas",
+    "topics": [
+      "Como elaborar orçamento de pequena reforma sem estourar o prazo do cliente",
+      "Contrato de prestação de serviços para pequenos empreiteiros e pedreiros",
+      "Como cobrar adiantamento de 50% no orçamento sem assustar o cliente"
+    ]
+  },
+  {
+    "category": "Técnicas de Vendas",
+    "categorySlug": "vendas",
+    "topics": [
+      "5 erros fatais ao enviar orçamento por WhatsApp que fazem você perder clientes",
+      "Como negociar desconto no orçamento de serviço sem prostituir seu trabalho",
+      "Por que propostas comerciais em PDF fecham 3x mais vendas do que texto digitado"
+    ]
+  },
+  {
+    "category": "Ar-Condicionado e Refrigeração",
+    "categorySlug": "climatizacao",
+    "topics": [
+      "Quanto cobrar por instalação de ar-condicionado split por faixa de BTUs",
+      "Modelo de contrato de manutenção preventiva e corretiva (PMOC) para pequenos comércios",
+      "Como precificar higienização de ar-condicionado e vender pacotes recorrentes",
+      "Checklist de ferramentas e insumos para não tomar prejuízo na instalação"
+    ]
+  },
+  {
+    "category": "Marcenaria e Montagem de Móveis",
+    "categorySlug": "marcenaria",
+    "topics": [
+      "Como calcular o metro linear de móveis planejados cobrindo chapas, ferragens e sobras",
+      "Tabela prática de precificação para montagem e desmontagem de móveis",
+      "Como estruturar cobrança com entrada de 50% para compra de MDF sem risco",
+      "Modelo de termo de vistoria de entrega para evitar retrabalho de montagem"
+    ]
+  },
+  {
+    "category": "Serralheria e Estruturas Metálicas",
+    "categorySlug": "serralheria",
+    "topics": [
+      "Como precificar portão basculante e gradil considerando peso do ferro e tempo de solda",
+      "Orçamento de cobertura metálica simples: como incluir frete e orçamento",
+      "Como proteger seu orçamento contra a variação semanal do preço do aço"
+    ]
+  },
+  {
+    "category": "Gesso e Drywall",
+    "categorySlug": "gesso-drywall",
+    "topics": [
+      "Quanto cobrar por metro quadrado de forro rebaixado e parede de gesso acartonado",
+      "Como orçar sanca iluminada e cortineiro sem errar na metragem linear",
+      "Orçamento de acabamento: como definir responsabilidades entre o gesseiro e o pintor"
+    ]
+  },
+  {
+    "category": "Limpeza Pós-Obra e Conservação",
+    "categorySlug": "limpeza-conservacao",
+    "topics": [
+      "Como calcular valor por metro quadrado de limpeza pesada pós-obra",
+      "Modelo de proposta para diaristas e empresas de limpeza em contratos mensais",
+      "Checklist de produtos químicos específicos e como repassar esse custo ao cliente"
+    ]
+  },
+  {
+    "category": "Segurança Eletrônica e Telecom",
+    "categorySlug": "seguranca-eletronica",
+    "topics": [
+      "Quanto cobrar por ponto de instalação de câmera de segurança (CFTV) e rede de internet",
+      "Proposta comercial para condomínios: troca de interfonia e controle de acesso",
+      "Como lucrar com contratos mensais de suporte e monitoramento técnico"
+    ]
+  },
+  {
+    "category": "Gestão Financeira e Precificação",
+    "categorySlug": "gestao-financeira",
+    "topics": [
+      "Como calcular o valor da sua hora técnica de trabalho sendo autônomo",
+      "Planilha simples para separar o dinheiro pessoal da conta PJ de prestador de serviços",
+      "Como embutir custos ocultos (gasolina, desgaste de ferramentas, almoço) em cada proposta",
+      "Quando vale a pena migrar de MEI para ME na prestação de serviços"
+    ]
+  },
+  {
+    "category": "Contratos e Proteção Jurídica",
+    "categorySlug": "juridico-contratos",
+    "topics": [
+      "Modelo simples de contrato de prestação de serviços que cabe em 1 página",
+      "Como se proteger legalmente contra clientes inadimplentes ou que cancelam no meio da obra",
+      "Termo de garantia de mão de obra: o que a lei exige e o que você não precisa cobrir"
+    ]
+  }
+]

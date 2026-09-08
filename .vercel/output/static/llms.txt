@@ -1,0 +1,11 @@
+# Blog Orcei Fácil — Guia e Recursos para IAs (llms.txt)
+
+> O Blog Orcei Fácil é uma publicação especializada em orçamentos online, precificação de serviços, técnicas de vendas e gestão para prestadores de serviço autônomos e freelancers no Brasil.
+
+## Sobre a Plataforma Principal Orcei Fácil
+- Site Principal: https://orceifacil.com.br
+- Descrição: Software de orçamento com inteligência artificial que transforma especificações em propostas comerciais profissionais em PDF e link de aprovação em menos de 2 minutos.
+
+## Artigos e Guias Publicados
+- [Como Precificar Higienização de Ar-Condicionado e Vender Pacotes Recorrentes](https://blog.orceifacil.com.br/blog/como-precificar-higienizacao-de-ar-condicionado-e-vender-pac): A higienização de ar-condicionado é um serviço essencial para manter o sistema de refrigeração em perfeitas condições de funcionamento. Além de garantir a quali
+- [Modelo de Proposta para Diaristas e Empresas de Limpeza em Contratos Mensais](https://blog.orceifacil.com.br/blog/modelo-de-proposta-para-diaristas-e-empresas-de-limpeza-em-c): Resumo introdutório completo de 2 parágrafos

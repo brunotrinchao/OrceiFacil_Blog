@@ -1,0 +1,48 @@
+name: Generate Daily Posts
+
+on:
+  schedule:
+    - cron: '17 11 * * *'   # 11:17 UTC = 08:17 BRT
+  workflow_dispatch: {}
+
+permissions:
+  contents: write            # Permissão para o bot commitar no repositório
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Generate Today's Posts
+        run: node scripts/generate.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NUXT_PUBLIC_SITE_URL: 'https://blog.orceifacil.com.br'
+          MODEL: 'gemini-2.5-flash'
+          TIMEZONE: 'America/Sao_Paulo'
+          POSTS_PER_DAY: '3'
+
+      - name: Commit and Push (Bot)
+        run: |
+          git config user.name 'orcablog[bot]'
+          git config user.email 'orcablog[bot]@users.noreply.github.com'
+          git add content/posts
+          git diff --cached --quiet && echo "Nenhuma alteração de post hoje." && exit 0
+          git commit -m "chore(blog): auto-generate daily posts for $(date -u +%Y-%m-%d)"
+          git push
+
+      - name: Ping IndexNow (Bing, Opcional)
+        if: ${{ secrets.INDEXNOW_KEY != '' }}
+        run: |
+          curl -fsS "https://api.indexnow.org/indexnow?url=https://blog.orceifacil.com.br/sitemap.xml&key=${{ secrets.INDEXNOW_KEY }}" || true
