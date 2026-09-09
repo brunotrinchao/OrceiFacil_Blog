@@ -49,6 +49,18 @@ jobs:
           git commit -m "chore(blog): auto-generate daily posts for $(date -u +%Y-%m-%d)"
           git push
 
+      - name: Build (Nitro → Vercel)
+        run: npm run build
+        env:
+          NUXT_PUBLIC_SITE_URL: 'https://blog.orceifacil.com.br'
+
+      - name: Deploy to Vercel (Production)
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: 'team_bI3KCtspU2U4gxS3Eqc7QUZU'
+          VERCEL_PROJECT_ID: 'prj_N6GNgitsBTbsiFalT0TeFV53Uvtk'
+        run: npx vercel deploy --prebuilt --prod --yes --token=$VERCEL_TOKEN
+
       - name: Ping IndexNow (Bing, Opcional)
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
