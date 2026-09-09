@@ -13,6 +13,32 @@ const { data: posts } = await useAsyncData('all-posts', () =>
 const featuredPost = computed(() => posts.value && posts.value.length > 0 ? posts.value[0] : null)
 const regularPosts = computed(() => posts.value && posts.value.length > 1 ? posts.value.slice(1) : [])
 
+// Filtro por categoria (chips derivados dos posts; "Todos" = feed completo)
+const activeCategory = ref('todos')
+const categories = computed(() => {
+  if (!posts.value) return []
+  const seen = new Map()
+  for (const p of posts.value) {
+    if (p.category && p.categorySlug && !seen.has(p.categorySlug)) {
+      seen.set(p.categorySlug, p.category)
+    }
+  }
+  return [...seen.entries()].map(([slug, name]) => ({ slug, name }))
+})
+const filteredFeatured = computed(() => {
+  if (!featuredPost.value) return null
+  if (activeCategory.value === 'todos' || featuredPost.value.categorySlug === activeCategory.value) return featuredPost.value
+  return null
+})
+const filteredPosts = computed(() => {
+  if (!regularPosts.value) return []
+  if (activeCategory.value === 'todos') return regularPosts.value
+  return regularPosts.value.filter(p => p.categorySlug === activeCategory.value)
+})
+function setCategory(slug: string) {
+  activeCategory.value = slug
+}
+
 function getPostLink(post: any) {
   if (!post) return '/'
   if (post.slug) return `/blog/${post.slug}`
@@ -105,9 +131,43 @@ useHead({
 
     <!-- Lista de Artigos -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      
+
+      <!-- Filtro de Categorias -->
+      <div v-if="categories.length" class="mb-12" aria-label="Filtrar artigos por categoria">
+        <div class="flex flex-wrap items-center gap-2.5 justify-center">
+          <button
+            type="button"
+            @click="setCategory('todos')"
+            :aria-pressed="activeCategory === 'todos'"
+            class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border
+                   focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40
+                   cursor-pointer select-none"
+            :class="activeCategory === 'todos'
+              ? 'bg-brand text-white border-brand shadow-md shadow-brand/20'
+              : 'bg-white text-ink-muted border-surface-line hover:border-brand/40 hover:text-brand'"
+          >
+            Todos
+          </button>
+          <button
+            v-for="cat in categories"
+            :key="cat.slug"
+            type="button"
+            @click="setCategory(cat.slug)"
+            :aria-pressed="activeCategory === cat.slug"
+            class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border
+                   focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40
+                   cursor-pointer select-none"
+            :class="activeCategory === cat.slug
+              ? 'bg-brand text-white border-brand shadow-md shadow-brand/20'
+              : 'bg-white text-ink-muted border-surface-line hover:border-brand/40 hover:text-brand'"
+          >
+            {{ cat.name }}
+          </button>
+        </div>
+      </div>
+
       <!-- Artigo em Destaque -->
-      <div v-if="featuredPost" class="mb-16">
+      <div v-if="filteredFeatured" class="mb-16">
         <div class="flex items-center gap-2 mb-6">
           <span class="text-xs font-bold uppercase tracking-wider text-brand">⭐ Artigo em Destaque</span>
           <div class="flex-grow h-px bg-surface-line"></div>
@@ -116,21 +176,21 @@ useHead({
         <div class="glass-card rounded-3xl p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border border-surface-line shadow-xl">
           <div class="space-y-4">
             <div class="flex items-center gap-3">
-              <span class="badge-category">{{ featuredPost.category }}</span>
-              <span class="text-xs text-ink-muted font-medium">⏱️ {{ featuredPost.readTime }}</span>
+              <span class="badge-category">{{ filteredFeatured.category }}</span>
+              <span class="text-xs text-ink-muted font-medium">⏱️ {{ filteredFeatured.readTime }}</span>
             </div>
             <h2 class="text-2xl sm:text-4xl font-extrabold text-ink leading-tight hover:text-brand transition-colors">
-              <NuxtLink :to="getPostLink(featuredPost)">
-                {{ featuredPost.title }}
+              <NuxtLink :to="getPostLink(filteredFeatured)">
+                {{ filteredFeatured.title }}
               </NuxtLink>
             </h2>
             <p class="text-ink-muted text-base leading-relaxed line-clamp-3">
-              {{ featuredPost.description }}
+              {{ filteredFeatured.description }}
             </p>
             <div class="pt-4 flex items-center justify-between">
-              <span class="text-xs text-ink-muted font-semibold">{{ featuredPost.date }}</span>
-              <NuxtLink 
-                :to="getPostLink(featuredPost)"
+              <span class="text-xs text-ink-muted font-semibold">{{ filteredFeatured.date }}</span>
+              <NuxtLink
+                :to="getPostLink(filteredFeatured)"
                 class="btn-primary text-sm px-6 py-2.5"
               >
                 Ler Artigo Completo →
@@ -160,16 +220,27 @@ useHead({
           📚 Artigos Recentes
         </h2>
 
-        <div v-if="regularPosts.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <PostCard 
-            v-for="post in regularPosts" 
-            :key="post.path || post.slug" 
-            :post="post" 
+        <div v-if="filteredPosts.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <PostCard
+            v-for="post in filteredPosts"
+            :key="post.path || post.slug"
+            :post="post"
           />
         </div>
 
         <div v-else-if="!featuredPost" class="text-center py-16 space-y-4">
           <p class="text-ink-muted text-lg">Carregando artigos do blog...</p>
+        </div>
+
+        <div v-else-if="activeCategory !== 'todos'" class="text-center py-16 space-y-4">
+          <p class="text-ink-muted text-lg">Nenhum artigo nesta categoria ainda.</p>
+          <button
+            type="button"
+            @click="setCategory('todos')"
+            class="btn-secondary text-sm px-6 py-2.5"
+          >
+            Ver todos os artigos
+          </button>
         </div>
       </div>
 

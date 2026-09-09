@@ -2,14 +2,6 @@
 import { ref } from 'vue'
 
 const isMobileMenuOpen = ref(false)
-
-const categories = [
-  { name: 'Eletricistas', href: '/blog/categoria/eletrica' },
-  { name: 'Hidráulica', href: '/blog/categoria/hidraulica' },
-  { name: 'Pintura & Acabamento', href: '/blog/categoria/pintura' },
-  { name: 'Reformas', href: '/blog/categoria/reformas' },
-  { name: 'Dicas de Vendas', href: '/blog/categoria/vendas' }
-]
 </script>
 
 <template>
@@ -26,14 +18,6 @@ const categories = [
         <!-- Navegação Desktop -->
         <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-ink-muted">
           <NuxtLink to="/" class="hover:text-brand transition-colors">Início</NuxtLink>
-          <NuxtLink 
-            v-for="cat in categories" 
-            :key="cat.href" 
-            :to="cat.href" 
-            class="hover:text-brand transition-colors"
-          >
-            {{ cat.name }}
-          </NuxtLink>
         </nav>
 
         <!-- CTA Principal -->
@@ -68,21 +52,12 @@ const categories = [
 
     <!-- Dropdown Menu Mobile -->
     <div v-if="isMobileMenuOpen" class="md:hidden border-b border-surface-line bg-white px-4 pt-2 pb-6 space-y-3">
-      <NuxtLink 
-        to="/" 
+      <NuxtLink
+        to="/"
         @click="isMobileMenuOpen = false"
         class="block py-2 text-base font-medium text-ink hover:text-brand"
       >
         Início
-      </NuxtLink>
-      <NuxtLink 
-        v-for="cat in categories" 
-        :key="cat.href" 
-        :to="cat.href" 
-        @click="isMobileMenuOpen = false"
-        class="block py-2 text-base font-medium text-ink-muted hover:text-brand"
-      >
-        {{ cat.name }}
       </NuxtLink>
       <div class="pt-4 border-t border-surface-line">
         <a 
