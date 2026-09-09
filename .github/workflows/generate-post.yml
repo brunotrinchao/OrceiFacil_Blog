@@ -50,6 +50,11 @@ jobs:
           git push
 
       - name: Ping IndexNow (Bing, Opcional)
-        if: ${{ secrets.INDEXNOW_KEY != '' }}
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: |
-          curl -fsS "https://api.indexnow.org/indexnow?url=https://blog.orceifacil.com.br/sitemap.xml&key=${{ secrets.INDEXNOW_KEY }}" || true
+          if [ -n "$INDEXNOW_KEY" ]; then
+            curl -fsS "https://api.indexnow.org/indexnow?url=https://blog.orceifacil.com.br/sitemap.xml&key=${INDEXNOW_KEY}" || true
+          else
+            echo "INDEXNOW_KEY não configurada — pulando ping."
+          fi
