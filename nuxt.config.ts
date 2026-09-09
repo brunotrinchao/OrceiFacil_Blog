@@ -3,7 +3,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
-    '@vercel/speed-insights'
+    '@vercel/speed-insights',
+    '@vercel/analytics'
   ],
 
   site: {
